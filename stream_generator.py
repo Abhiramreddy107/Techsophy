@@ -1,7 +1,9 @@
-# stream_generator.py
-import time, random
+import time
+import random
+import uuid
 
-def telematics_stream(trip_id="trip-001", duration=60):
+def telematics_stream(trip_id=None, duration=60):
+    trip_id = trip_id or str(uuid.uuid4())
     for second in range(duration):
         yield {
             "trip_id": trip_id,

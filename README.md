@@ -13,6 +13,8 @@ This project simulates a **Usage-Based Insurance (UBI)** system that adjusts ins
 - ✅ Personalized feedback for safety improvement
 - ✅ Modular structure (data, model, scoring, pricing, feedback)
 - ✅ Stream-ready architecture (evaluates every 10 seconds)
+- ✅ **Privacy-aware** system with trip anonymization
+- ✅ **Consent control** before monitoring starts
 
 ---
 
@@ -29,8 +31,8 @@ This project simulates a **Usage-Based Insurance (UBI)** system that adjusts ins
 
 ```
 telematics_insurance/
-├── main.py                     # Main execution script (streaming logic)
-├── stream_generator.py         # Real-time data simulator (1 datapoint/sec)
+├── main.py                     # Main execution script (streaming logic + privacy)
+├── stream_generator.py         # Real-time data simulator (1 datapoint/sec, UUID trip ID)
 ├── behavior_model.py           # ML model for behavior classification
 ├── risk_scoring.py             # Maps behavior to risk score
 ├── premium_adjustment.py       # Adjusts insurance premium based on risk
@@ -43,7 +45,7 @@ telematics_insurance/
 
 ## 🚀 How to Run
 
-1. **Install dependencies** (once):
+1. **Install dependencies**:
 ```bash
 pip install scikit-learn numpy
 ```
@@ -53,26 +55,14 @@ pip install scikit-learn numpy
 python main.py
 ```
 
-3. Output appears every second, with a full driving evaluation every 10 seconds:
+3. ✅ Output appears every second, with a full driving evaluation every 10 seconds:
 ```
 📊 Evaluation at 10 seconds
+Trip ID: d47f38c2-43a4-420f-b9fc-fadf4126d3be
 Behavior: moderate
 Risk Score: 50
 Adjusted Premium: ₹5000
 Feedback: Drive more cautiously, especially in traffic
-```
-
----
-
-## 📊 Sample Output :
-
-```
-Received: {'speed': 78, 'acceleration': 1.5, 'braking': 0.2, 'timestamp': 9}
-📊 Evaluation at 10 seconds
-Behavior: safe
-Risk Score: 20
-Adjusted Premium: ₹4500
-Feedback: Great driving! Keep it up!
 ```
 
 ---
@@ -87,6 +77,8 @@ Feedback: Great driving! Keep it up!
 | Premium Engine | Adjusts insurance cost dynamically |
 | Feedback | Gives user actionable advice |
 | Stream Pipeline | Repeats every 10 seconds with real-time output |
+| Privacy Layer | Anonymizes trip ID using UUID |
+| Consent Gate | Allows simulation of opt-in tracking |
 
 ---
 
