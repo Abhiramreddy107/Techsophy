@@ -1,9 +1,9 @@
-from stream_generator import telematics_stream
-from behavior_model import DrivingBehaviorModel
-from risk_scoring import calculate_risk_score
-from premium_adjustment import adjust_premium
-from feedback_system import generate_feedback
-from utils import create_mock_training_data
+from src.stream_generator import telematics_stream
+from src.behavior_model import DrivingBehaviorModel
+from src.risk_scoring import calculate_risk_score
+from src.premium_adjustment import adjust_premium
+from src.feedback_system import generate_feedback
+from src.utils import create_mock_training_data
 
 def main():
     print("🚗 Starting Continuous Telematics Stream...")
